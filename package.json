@@ -9,7 +9,11 @@
     "url": "https://github.com/corrily/paywalls-react-sdk-example.git"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
     "@corrily/react-sdk": "^0.0.32",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@recurly/react-recurly": "^2.0.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,6 +21,8 @@
     "@types/node": "^16.18.52",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "framer-motion": "^10.16.4",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",

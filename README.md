@@ -43,5 +43,14 @@ Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area
 ```
 
 
+Recurly
+
+add <script src="https://js.recurly.com/v4/recurly.js"></script> into index.html
+<link rel="stylesheet" href="https://js.recurly.com/v4/recurly.css"> too
+
+
 ### Links
  - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  
+
+
+
