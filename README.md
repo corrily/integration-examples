@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Getting Started @corrily/react-sdk
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Preparations
+You need to create:  
+ - products  
+ - a package  
+ - segmentation for a package  
+ - (optional) create features and attach features to products  
 
-## Available Scripts
 
-In the project directory, you can run:
+### Integration
+1. Install @corrily/react-sdk into your frontend:
 
-### `npm start`
+```bash
+npm i --save @corrily/react-sdk
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# if you use react version lower than 17.0.2, then you can use a command:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm i --save @corrily/react-sdk --legacy-peed-deps
+```
 
-### `npm test`
+2. Add CorrilyProvider:
+_For authenticated users you should pass their id._  
+```typescript
+const currentUserId = 'test-user-id';
+..
+<CorrilyProvider
+  apiKey={PAYWALL_API_ID}
+  params={{
+    user_id: currentUserId,
+  }}
+  >
+  ...
+</CorrilyProvider>
+```
+**PAYWALL_API_ID** you can find by path:  
+Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Use a Paywall component to show the Paywall:
 
-### `npm run build`
+```typescript
+<Paywall />
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Links
+ - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  

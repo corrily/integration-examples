@@ -1,8 +1,15 @@
 {
-  "name": "my-app",
+  "name": "@corrily/paywalls-react-sdk-example",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "An example of integration with the Corrily Paywalls React SDK",
+  "author": "Corrily",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corrily/paywalls-react-sdk-example.git"
+  },
   "dependencies": {
+    "@corrily/react-sdk": "^0.0.32",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
