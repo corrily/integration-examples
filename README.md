@@ -43,14 +43,24 @@ Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area
 ```
 
 
-Recurly
+Recurly integration.
+First of all, you need to install recurly react module:
 
-add <script src="https://js.recurly.com/v4/recurly.js"></script> into index.html
-<link rel="stylesheet" href="https://js.recurly.com/v4/recurly.css"> too
+```bash
+npm i --save @recurly/react-recurly
+```
+
+Secondly, you need to integrate a script for js and styles into index.html:
+
+```
+<link rel="stylesheet" href="https://js.recurly.com/v4/recurly.css"> 
+<script src="https://js.recurly.com/v4/recurly.js"></script>
+```
+
+### Integration communication schema
+
+<image src="./docs/images/sequence.png" />
 
 
 ### Links
  - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  
-
-
-
