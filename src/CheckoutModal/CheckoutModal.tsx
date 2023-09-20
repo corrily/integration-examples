@@ -27,7 +27,7 @@ export const CheckoutModal = ({isOPen, product, onClose}: CheckoutFormProps) => 
             
             {/*
               Recurly's <Elements> component should wrap <CardElement> component
-              We add it here, because useRecurly hook can be used only inside <Elements> component  
+              We add it here, because useRecurly hook can be used only inside <Elements> component
             */}
             <Elements>
               <CheckoutForm onClose={onClose} product={product} />

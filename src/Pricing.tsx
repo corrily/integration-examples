@@ -6,18 +6,18 @@ import { CheckoutModal } from './CheckoutModal';
 import '@corrily/react-sdk/style.css';
 
 // set here your Recurly public key
-const RECURLY_PUBLIC_KEY = 'ewr1-J8S7rxSAUxRCESBUfs8fm0';
+const RECURLY_PUBLIC_KEY = 'ewr1-..............fs8fm0';
 
 // set here your Paywall API ID
-const PAYWALL_API_ID = '460_920244bb-7295-4cc1-9fa2-0b602f8593e2';
+const PAYWALL_API_ID = '460_920244bb-...-0b602f8593e2';
 
 
 export const Pricing = () => {
   const [isOpenCheckoutForm, setIsOpenCheckoutForm] = useState(false);
   const [product, setProduct] = useState<Product | null>(null);
 
-  // if user is authenticated, pass in the user id
-  // otherwise, pass in null
+  // if user is authenticated, pass the user_id
+  // otherwise, pass null
   const currentUserId = 'test-user-id';
 
   return (
@@ -43,7 +43,6 @@ export const Pricing = () => {
               <CheckoutModal
                 isOPen={isOpenCheckoutForm}
                 onClose={() => setIsOpenCheckoutForm(false)}
-                // @ts-ignore
                 product={product}
               />
             </CorrilyProvider>

@@ -54,4 +54,4 @@ Add necessary dependencies and code changes according to documentation [here]([r
 
 ### Links
  - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  
- - [recurlt-react](https://github.com/recurly/react-recurly)  
+ - [recurly-react](https://github.com/recurly/react-recurly)  

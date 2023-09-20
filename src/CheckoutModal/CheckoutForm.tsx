@@ -3,8 +3,8 @@ import { Button, Flex, Input, useToast } from '@chakra-ui/react';
 import { CardElement, useRecurly } from '@recurly/react-recurly';
 import { Product } from '@corrily/react-sdk';
 
-// Here you should a url for an API that will create a subscription
-const PURCHASE_API_URL = ''
+// Here you should set a url for an API that will create a subscription
+const PURCHASE_API_URL = 'https://backend.com/create-subscription'
 
 export interface CheckoutFormProps {
   product: Product;
