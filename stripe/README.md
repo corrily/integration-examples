@@ -1,5 +1,7 @@
 # Stripe integration example
 
+## This integration is under development and may be unstable. Let us know if you want to use it
+
 ### Preparations
 1. Corrily account  
 2. In Corrily account you should have:
