@@ -1,4 +1,4 @@
-# Getting Started @corrily/react-sdk
+# Recurly integration example
 
 ### Preparations
 1. Corrily account  
