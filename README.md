@@ -1,6 +1,6 @@
 # Corrily SDK integration examples
 
-Corrily integration involves two main tasks:
+**Corrily integration involves two main tasks:**
 1. Display prices sourced from Corrily on your pricing page.
 2. Connect Corrily to your subscription management platform to feed revenue events for analytics.
 
