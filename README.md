@@ -13,7 +13,7 @@ while documentation for the second can be found in Corrily's [integration docs](
 
 
 ## API Integration
-(Retrieve user-specific prices by making API requests to Corrily from your back-end)
+Retrieve user-specific prices by making API requests to Corrily from your back-end.
 
 1. Stripe Golang example ([link](api-integration/stripe-golang))
 
