@@ -3,26 +3,34 @@ import { CorrilyProvider } from '@corrily/react-sdk';
 import { ProductList } from '../components/ProductList';
 import '@corrily/react-sdk/style.css';
 
-// set here your Paywall API ID
-const PAYWALL_API_ID = '460_355fcaa3-9bdc-4741-9a79-42c1143e7fcc';
+// Corrily API Key
+const CORRILY_API_KEY = 'c56a6dc3-0a0d-4ce0-9fda-6d273abcf4c8';
+
 
 export const Pricing = () => {
-  // if user is authenticated, pass the user_id
-  // otherwise, pass null
-  const currentUserId = 'test-user-id';
+  // For authenticated users, provide user_id
+  // For unauthenticated, set userId to null
+  const userId = 'test-user-id';
+
+  // For authenticated users, provide country User belongs to
+  // For unauthenticated, use IP address to let Corrily guess country by IP
+  const country = "US";
+
+  const params = {
+    user_id: userId,
+    country: country,
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header"></header>
+
       <div>
         <ChakraProvider>
           <CorrilyProvider
-            apiKey={PAYWALL_API_ID}
-            apiUrl='http://0.0.0.0:8090' // TODO: remove
-            params={{
-              user_id: currentUserId,
-            }}
+            apiKey={CORRILY_API_KEY}
+            apiUrl='https://staging.corrily.com/mainapi/'
+            params={params}
           >
             <ProductList />
           </CorrilyProvider>

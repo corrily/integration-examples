@@ -1,69 +1,88 @@
-# Stripe integration example
+# Integration example | Corrily React SDK + Stripe
 
-## This integration is under development and may be unstable. Let us know if you want to use it
+## Example illustrates:
+- How to render Corrily Paywall with prices and currencies coming from Corrily
+- How to create Stripe Checkout Flow on "subscribe" button click
 
-### Preparations
-1. Corrily account  
-2. In Corrily account you should have:
- - products  
- - a package  
- - a segmentation for a package  
- - (optional) create features and attach features to products  
- - a Paywall  
-3. Stripe account  
- - Stripe API key  
- - Your products must be synchronized with stripe  
- - Stripe API key must be set in the Corrily Dashboard  
 
-### Integration communication schema
+## Communication Schema
 <image src="./docs/stripe_integration.png" />
 
-### Steps
-1. Install @corrily/react-sdk into your frontend:
 
-```bash
-npm i --save @corrily/react-sdk
-```
+## Prerequisites
+1. Create Corrily account
+2. Create Stripe account
+3. Integrate Stripe & Corrily
+    - [Connect](https://dashboard.corrily.com/integrations) Stripe to Corrily  
+    - (Optional) Import Stripe Products into Corrily using [Import Wizard](https://dashboard.corrily.com/products)
+4. Configure Corrily Catalog:
+    - Manually define [Products](https://dashboard.corrily.com/products) if they weren't imported
+    - Group a products together under a [Package](https://dashboard.corrily.com/packages)
+    - (Optional) configure Packaging Segmentation
+    - (optional) define [Features](https://dashboard.corrily.com/features) and set Feature Values for each Product
+    - Create a [Paywall](https://dashboard.corrily.com/paywalls)
 
-2. Add CorrilyProvider:  
-_For authenticated users you should pass their id._  
-```typescript
-const currentUserId = 'test-user-id';
-..
-<CorrilyProvider
-  apiKey={PAYWALL_API_ID}
-  params={{
-    user_id: currentUserId,
-  }}
->
-  ...
-</CorrilyProvider>
-```
-**PAYWALL_API_ID** you can find in Corrily Dashboard:  
-Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area  
 
-3. Use a Paywall component to show the Paywall:
+## Usage
+1. Install `@corrily/react-sdk` package:
 
-```typescript
-const { goToCheckoutPage } = useStripe({
-  // here you need to pass urls, where user
-  // will be redirected in case of successfull payment or error
-  onSuccessUrl: 'http://localhost:3000/success',
-  onCancelUrl: 'http://localhost:3000/fail',
-});
+    ```bash
+    npm i --save @corrily/react-sdk
+    ```
 
-const handleProductSelected = async (product: Product) => {
-  // here occurs redirect to Stripe Checkout Page
-  goToCheckoutPage(product);
-};
+    For React version lower, than 17.0.2:
+    ```bash
+    npm i --save @corrily/react-sdk --legacy-peed-deps
+    ```
 
-return (
-  <Paywall
-    onProductSelected={handleProductSelected}
-  />
-);
-```
+2. Get Corrily API Key from [Resources page](https://dashboard.corrily.com/resources) and store it in `.env.local`:
+    ```
+    CORRILY_API_KEY=...
+    ```
+
+3. Add `CorrilyProvider`:
+    _For authenticated users you should pass their id._
+
+    ```typescript
+    const currentUserId = 'test-user-id';
+    ..
+    <CorrilyProvider
+      apiKey={PAYWALL_API_ID}
+      params={{
+        user_id: currentUserId,
+        country: country,
+      }}
+    >
+      ...
+    </CorrilyProvider>
+    ```
+
+    **PAYWALL_API_ID** you can find in Corrily Dashboard:  
+    Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area  
+
+3. Use a Paywall component to render the Paywall:
+
+    ```typescript
+    const { goToCheckoutPage } = useStripe({
+      // here you need to pass urls, where user
+      // will be redirected in case of successfull payment or error
+      onSuccessUrl: 'http://localhost:3000/success',
+      onCancelUrl: 'http://localhost:3000/fail',
+    });
+
+    const handleProductSelected = async (product: Product) => {
+      // here occurs redirect to Stripe Checkout Page
+      goToCheckoutPage(product);
+    };
+
+    return (
+      <Paywall
+        onProductSelected={handleProductSelected}
+      />
+    );
+    ```
 
 
 ### Links
  - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  
+ - [Corrily Architecture](https://docs.corrily.com/basics/02_corrily-architecture)  
