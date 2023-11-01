@@ -1,38 +1,45 @@
-import { useState } from 'react';
-import { ChakraProvider } from '@chakra-ui/react'
-import { CorrilyProvider, Paywall, Product } from '@corrily/react-sdk';
-import { RecurlyProvider } from '@recurly/react-recurly';
-import { CheckoutModal } from './CheckoutModal';
+import {useState} from 'react';
+import {ChakraProvider} from '@chakra-ui/react'
+import {CorrilyProvider, Paywall, Product} from '@corrily/react-sdk';
+import {RecurlyProvider} from '@recurly/react-recurly';
+import {CheckoutModal} from './CheckoutModal';
 import '@corrily/react-sdk/style.css';
 
 // set here your Recurly public key
-const RECURLY_PUBLIC_KEY = 'ewr1-..............fs8fm0';
+const RECURLY_PUBLIC_KEY = process.env.RECURLY_PUBLIC_KEY
 
-// set here your Paywall API ID
-const PAYWALL_API_ID = '460_920244bb-...-0b602f8593e2';
+// Corrily API Key
+const CORRILY_API_KEY = process.env.REACT_APP_API_KEY;
 
 
 export const Pricing = () => {
   const [isOpenCheckoutForm, setIsOpenCheckoutForm] = useState(false);
   const [product, setProduct] = useState<Product | null>(null);
 
-  // if user is authenticated, pass the user_id
-  // otherwise, pass null
-  const currentUserId = 'test-user-id';
+  // For authenticated users, provide user_id
+  // For unauthenticated, set userId to null
+  const userId = 'test-user-id';
+
+  // For authenticated users, provide country User belongs to
+  // For unauthenticated, use IP address to let Corrily guess country by IP
+  const country = "US";
+
+  const params = {
+    user_id: userId,
+    country: country,
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <header className="App-header"></header>
+
       <div>
         <ChakraProvider>
           <RecurlyProvider publicKey={RECURLY_PUBLIC_KEY}>
             <CorrilyProvider
-              apiKey={PAYWALL_API_ID}
-              params={{
-                user_id: currentUserId,
-              }}
+              apiKey={CORRILY_API_KEY}
+              apiUrl='https://staging.corrily.com/mainapi/'
+              params={params}
             >
               <Paywall
                 onProductSelected={(product) => {

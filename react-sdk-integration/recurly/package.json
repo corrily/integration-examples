@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",
-    "@corrily/react-sdk": "^0.0.32",
+    "@corrily/react-sdk": "^0.0.41",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@recurly/react-recurly": "^2.0.0",
