@@ -65,15 +65,15 @@
     </CorrilyProvider>
     ```
 
-   1. Define "on-click" behaviour for selected product in `ProductList.tsx`.
+4. Define "on-click" behaviour for selected product in `ProductList.tsx`.
 
-       _Typically you would either redirect to signup page, or to send API call to your back-end to create Stripe Checkokut Session._
+    _Typically you would either redirect to signup page, or to send API call to your back-end to create Stripe Checkokut Session._
 
-       ```typescript
-       const handleProductSelected = async (product: Product) => {
-         ...
-       };
-       ```
+    ```typescript
+    const handleProductSelected = async (product: Product) => {
+      ...
+    };
+    ```
 
 ### Back-end
 
