@@ -1,6 +1,6 @@
-import { Paywall, Product, useStripe } from '@corrily/react-sdk';
+import { Paywall, Product } from '@corrily/react-sdk';
 
-export const ProductList = () => {
+export const PaywallWrapper = () => {
   // Assume Purchase is available for authenticated users only
   const userId = "test-user-id";
   const country = "US";

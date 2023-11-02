@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { CorrilyProvider } from '@corrily/react-sdk';
-import { ProductList } from './ProductList';
+import { PaywallWrapper } from './PaywallWrapper';
 import '@corrily/react-sdk/style.css';
 
 // Corrily API Key
@@ -31,7 +31,7 @@ export const Pricing = () => {
             apiKey={CORRILY_API_KEY}
             params={params}
           >
-            <ProductList />
+            <PaywallWrapper />
           </CorrilyProvider>
         </ChakraProvider>
       </div>
