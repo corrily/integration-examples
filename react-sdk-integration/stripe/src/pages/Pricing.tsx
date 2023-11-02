@@ -4,7 +4,7 @@ import { ProductList } from '../components/ProductList';
 import '@corrily/react-sdk/style.css';
 
 // Corrily API Key
-const CORRILY_API_KEY = 'c56a6dc3-0a0d-4ce0-9fda-6d273abcf4c8';
+const CORRILY_API_KEY = process.env.REACT_APP_CORRILY_API_KEY as string;
 
 
 export const Pricing = () => {
@@ -14,7 +14,7 @@ export const Pricing = () => {
 
   // For authenticated users, provide country User belongs to
   // For unauthenticated, use IP address to let Corrily guess country by IP
-  const country = "US";
+  const country = "AE";
 
   const params = {
     user_id: userId,

@@ -6,10 +6,10 @@ import {CheckoutModal} from './CheckoutModal';
 import '@corrily/react-sdk/style.css';
 
 // set here your Recurly public key
-const RECURLY_PUBLIC_KEY = process.env.RECURLY_PUBLIC_KEY
+const RECURLY_PUBLIC_KEY = process.env.REACT_APP_RECURLY_PUBLIC_KEY as string;
 
 // Corrily API Key
-const CORRILY_API_KEY = process.env.REACT_APP_API_KEY;
+const CORRILY_API_KEY = process.env.REACT_APP_CORRILY_API_KEY as string;
 
 
 export const Pricing = () => {
@@ -22,7 +22,7 @@ export const Pricing = () => {
 
   // For authenticated users, provide country User belongs to
   // For unauthenticated, use IP address to let Corrily guess country by IP
-  const country = "US";
+  const country = "AE";
 
   const params = {
     user_id: userId,
@@ -38,7 +38,6 @@ export const Pricing = () => {
           <RecurlyProvider publicKey={RECURLY_PUBLIC_KEY}>
             <CorrilyProvider
               apiKey={CORRILY_API_KEY}
-              apiUrl='https://staging.corrily.com/mainapi/'
               params={params}
             >
               <Paywall
