@@ -103,6 +103,7 @@
 
 ⚠️ It's important, that we provide price and currency override in `"price_data"` attribute in Stripe Checkout Session API payload.
 That allows to use any custom values coming from Corrily API without a need to manually create new Stripe Prices.
+Check [source code](server/app.js) for details.
 
 ```javascript
 line_items: [{
