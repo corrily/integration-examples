@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { Pricing } from './pages/Pricing';
+import { Pricing } from './components/Pricing';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

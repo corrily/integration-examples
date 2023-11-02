@@ -12,13 +12,13 @@ while documentation for the second can be found in Corrily's [integration docs](
 2. Integrate [Corrily API](https://docs.corrily.com/api-reference/calculate-price) to power the content on your existing pricing page without altering your unique design.
 
 
-## API Integration
+## Corrily API Integration
 Retrieve user-specific prices by making API requests to Corrily from your back-end.
 
 1. Stripe Golang example ([link](api-integration/stripe-golang))
 
 
-## Paywall Builder (React SDK)
+## Corrily Paywalls Integration (React SDK)
 Use the React SDK to render the Corrily Paywall in your application ([Next.js](https://nextjs.org/) recommended).
 
 1. Recurly integration example ([link](react-sdk-integration/recurly))

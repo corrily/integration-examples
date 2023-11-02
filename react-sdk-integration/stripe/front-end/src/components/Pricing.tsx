@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { CorrilyProvider } from '@corrily/react-sdk';
-import { ProductList } from '../components/ProductList';
+import { ProductList } from './ProductList';
 import '@corrily/react-sdk/style.css';
 
 // Corrily API Key
@@ -29,7 +29,6 @@ export const Pricing = () => {
         <ChakraProvider>
           <CorrilyProvider
             apiKey={CORRILY_API_KEY}
-            apiUrl='https://staging.corrily.com/mainapi/'
             params={params}
           >
             <ProductList />

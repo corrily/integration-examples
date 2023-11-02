@@ -2,7 +2,7 @@
 
 ## Example illustrates:
 - How to render Corrily Paywall with prices and currencies coming from Corrily
-- How to create Stripe Checkout Flow on "subscribe" button click
+- How to implement Stripe Checkout Session API on server side
 
 
 ## Communication Schema
@@ -20,13 +20,17 @@
     - Group a products together under a [Package](https://dashboard.corrily.com/packages)
     - (Optional) configure Packaging Segmentation
     - (optional) define [Features](https://dashboard.corrily.com/features) and set Feature Values for each Product
-    - Create a [Paywall](https://dashboard.corrily.com/paywalls)
+    - Create a [Paywall](https://dashboard.corrily.com/paywalls) with type: `Pricing Page`, channel: `web` and selected package.
 
 
 ## Usage
+
+### Front-end
+
 1. Install `@corrily/react-sdk` package:
 
     ```bash
+    cd front-end
     npm i --save @corrily/react-sdk
     ```
 
@@ -40,7 +44,7 @@
     REACT_APP_CORRILY_API_KEY=...
     ```
 
-3. Add `CorrilyProvider`:
+3. Configure `CorrilyProvider`:
     _For authenticated users you should determine their id and country._
 
     ```typescript
@@ -62,7 +66,9 @@
     </CorrilyProvider>
     ```
 
-3. Use a Paywall component to render the Paywall:
+4. Define "on-click" behaviour for selected product in `ProductList.tsx`.
+
+    _Typically you would either redirect to signup page, or to send API call to your back-end to create Stripe Checkokut Session._
 
     ```typescript
     const { goToCheckoutPage } = useStripe({
@@ -81,6 +87,32 @@
         onProductSelected={handleProductSelected}
       />
     );
+    ```
+
+### Back-end
+
+1. Install [stripe-node](https://github.com/stripe/stripe-node) package and the others:
+
+    ```bash
+    cd server
+    npm i
+    npm i --save stripe
+    ```
+
+2. Get Stripe API Key from Stripe [Developers page](https://dashboard.stripe.com/test/apikeys) and store it in `.env`:
+    ```
+    STRIPE_API_KEY=sk_...
+    ```
+
+3. Get Corrily API Key from [Resources page](https://dashboard.corrily.com/resources) and store it in `.env`:
+    ```
+    CORRILY_API_KEY=...
+    ```
+
+4. Run NodeJS server:
+
+    ```bash
+    node app.js
     ```
 
 
