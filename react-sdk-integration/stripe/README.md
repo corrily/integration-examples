@@ -115,7 +115,7 @@
     node app.js
     ```
 
-Note, that we provide `price_data` to Stripe Checkout Session API call.
+⚠️ Note, that we provide `price_data` to Stripe Checkout Session API call.
 That allows us to pass any custome price and currency coming from Corrily API.
 
 ```javascript
@@ -132,6 +132,8 @@ line_items: [{
   quantity: 1,
 }],
 ```
+
+Read more in [Stripe API docs](https://stripe.com/docs/api/checkout/sessions/create#create_checkout_session-line_items-price_data-product_data)
 
 ### Links
  - [Paywalls documentation](https://docs.corrily.com/paywall-builder/configure)  
