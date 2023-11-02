@@ -6,7 +6,7 @@
 
 
 ## Communication Schema
-<image src="./docs/stripe_integration.png" />
+<image src="./docs/stripe-control-flow.jpg" />
 
 
 ## Prerequisites
@@ -37,41 +37,42 @@
 
 2. Get Corrily API Key from [Resources page](https://dashboard.corrily.com/resources) and store it in `.env.local`:
     ```
-    CORRILY_API_KEY=...
+    REACT_APP_CORRILY_API_KEY=...
     ```
 
 3. Add `CorrilyProvider`:
-    _For authenticated users you should pass their id._
+    _For authenticated users you should determine their id and country._
 
     ```typescript
-    const currentUserId = 'test-user-id';
-    ..
+    const CORRILY_API_KEY = process.env.REACT_APP_CORRILY_API_KEY as string;
+ 
+    const userId = 'test-user-id';
+    const country = 'US';
+
+    const params = {
+      user_id: userId,
+      country: country,
+    };
+
     <CorrilyProvider
-      apiKey={PAYWALL_API_ID}
-      params={{
-        user_id: currentUserId,
-        country: country,
-      }}
+      apiKey={CORRILY_API_KEY}
+      params={params}
     >
       ...
     </CorrilyProvider>
     ```
 
-    **PAYWALL_API_ID** you can find in Corrily Dashboard:  
-    Dashboard => Paywalls => {Your Paywall} => Publish tab => "API ID" area  
-
 3. Use a Paywall component to render the Paywall:
 
     ```typescript
     const { goToCheckoutPage } = useStripe({
-      // here you need to pass urls, where user
-      // will be redirected in case of successfull payment or error
+      // Pass payment success and failure redirect URLs here
       onSuccessUrl: 'http://localhost:3000/success',
       onCancelUrl: 'http://localhost:3000/fail',
     });
 
     const handleProductSelected = async (product: Product) => {
-      // here occurs redirect to Stripe Checkout Page
+      // Redirect to Stripe Checkout Page
       goToCheckoutPage(product);
     };
 

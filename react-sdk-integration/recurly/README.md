@@ -6,7 +6,7 @@
 
 
 ## Communication Schema
-<image src="./docs/images/sequence.png" />
+<image src="./docs/recurly-control-flow.jpg" />
 
 
 ### Prerequisites

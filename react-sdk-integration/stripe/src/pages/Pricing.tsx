@@ -14,7 +14,7 @@ export const Pricing = () => {
 
   // For authenticated users, provide country User belongs to
   // For unauthenticated, use IP address to let Corrily guess country by IP
-  const country = "AE";
+  const country = "US";
 
   const params = {
     user_id: userId,

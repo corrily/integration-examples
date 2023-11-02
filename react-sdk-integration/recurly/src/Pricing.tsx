@@ -38,6 +38,7 @@ export const Pricing = () => {
           <RecurlyProvider publicKey={RECURLY_PUBLIC_KEY}>
             <CorrilyProvider
               apiKey={CORRILY_API_KEY}
+              apiUrl='https://staging.corrily.com/mainapi/'
               params={params}
             >
               <Paywall
