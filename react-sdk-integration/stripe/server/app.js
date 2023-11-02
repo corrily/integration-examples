@@ -60,7 +60,11 @@ app.post('/create-checkout-session', async (req, res) => {
   const currency = stripe_integration.currency;
   const amount = stripe_integration.amount;
 
-  // Here we don't pass Stripe Customer ID assuming customer is new and have to be created automatically by Stripe
+  // 1. Here we don't pass Stripe Customer ID assuming customer is new and have to be created automatically by Stripe
+  // 2. It's important, that we provide price and currency override in "price_data" attribute in Stripe Checkout Session API payload.
+  //    That allows to use any custom values coming from Corrily API without a need to manually create new Stripe Prices.
+  // 3. Finally, we pass user_id in "metadata" attribute.
+  //    Corrily analytics engine will use that field to match Stripe Customers with Corrily Users.
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     mode: 'subscription',
