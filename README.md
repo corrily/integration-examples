@@ -19,7 +19,11 @@ Retrieve user-specific prices by making API requests to Corrily from your back-e
 
 
 ## Corrily Paywalls Integration (React SDK)
-Use the React SDK to render the Corrily Paywall in your application ([Next.js](https://nextjs.org/) recommended).
+Use the React SDK to render the Corrily Paywall in your application.
+
+Each example listed below will contain both front-end and server code
+to illustrate how to render Paywall, and how to create Checkout Session
+with prices user seen.
 
 1. Recurly integration example ([link](react-sdk-integration/recurly))
     - integrate `@corrily/react-sdk` into your pricing page

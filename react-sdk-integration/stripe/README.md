@@ -1,8 +1,8 @@
 # Integration example | Corrily React SDK + Stripe
 
-## Example illustrates:
-- How to render Corrily Paywall with prices and currencies coming from Corrily
-- How to implement Stripe Checkout Session API on server side
+## Example contains:
+- Front-end React code illustrating how to render Corrily Paywall with prices and currencies coming from Corrily.
+- Back-end NodeJS server code with an example creating Stripe Checkout Session with Corrily prices.
 
 
 ## Communication Schema
@@ -18,7 +18,6 @@
 4. Configure Corrily Catalog:
     - Manually define [Products](https://dashboard.corrily.com/products) if they weren't imported
     - Group a products together under a [Package](https://dashboard.corrily.com/packages)
-    - (Optional) configure Packaging Segmentation
     - (optional) define [Features](https://dashboard.corrily.com/features) and set Feature Values for each Product
     - Create a [Paywall](https://dashboard.corrily.com/paywalls) with type: `Pricing Page`, channel: `web` and selected package.
 
@@ -66,28 +65,15 @@
     </CorrilyProvider>
     ```
 
-4. Define "on-click" behaviour for selected product in `ProductList.tsx`.
+   1. Define "on-click" behaviour for selected product in `ProductList.tsx`.
 
-    _Typically you would either redirect to signup page, or to send API call to your back-end to create Stripe Checkokut Session._
+       _Typically you would either redirect to signup page, or to send API call to your back-end to create Stripe Checkokut Session._
 
-    ```typescript
-    const { goToCheckoutPage } = useStripe({
-      // Pass payment success and failure redirect URLs here
-      onSuccessUrl: 'http://localhost:3000/success',
-      onCancelUrl: 'http://localhost:3000/fail',
-    });
-
-    const handleProductSelected = async (product: Product) => {
-      // Redirect to Stripe Checkout Page
-      goToCheckoutPage(product);
-    };
-
-    return (
-      <Paywall
-        onProductSelected={handleProductSelected}
-      />
-    );
-    ```
+       ```typescript
+       const handleProductSelected = async (product: Product) => {
+         ...
+       };
+       ```
 
 ### Back-end
 
